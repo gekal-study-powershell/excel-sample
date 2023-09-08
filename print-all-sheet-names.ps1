@@ -49,13 +49,14 @@ try {
     
 } finally {
 
-    if($null -ne $excel) {
+    if($null -ne $global:excel) {
         Write-Host ">>>>>>>>>> Close Excel <<<<<<<<<<";
         # Excel‚ðI—¹‚·‚éB
-        $excel.Quit();
-        $excel = $null;
+        $global:excel.Quit();
+        $global:excel = $null;
     }
 
-    $excel = $null;
     [GC]::Collect();
+
+    Write-Host "Finished."
 }
